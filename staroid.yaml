@@ -10,20 +10,20 @@ deploy:
   - name: Configuration
     collapsed: false
     params:
-    - name: USERNAME
+    - name: Username
       description: The username of the Cloud9 IDE user.
       type: STRING
       defaultValue: "asatomi"
       optional: false
-      paths:
-      - Deployment:c9idev3-deployment:spec.template.spec.containers[0].env[0].value 
 
-    - name: PASSWORD
+    - name: Password
       description: The password of the Cloud9 IDE user.
       type: STRING
       defaultValue: "password"
       optional: false
+      
       paths:
-      - Deployment:c9idev3-deployment:spec.template.spec.containers[0].env[1].value 
+      - Deployment:cloud9-v3:spec.template.spec.containers[0].env[0].value # USERNAME
+      - Deployment:cloud9-v3:spec.template.spec.containers[0].env[1].value # PASSWORD
 starRank:
   rate: 1.0
