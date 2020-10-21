@@ -1,0 +1,6 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+    - cloud9.yaml

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: c9idev3-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud9-v3
+  template:
+    metadata:
+      labels:
+        app: cloud9-v3
+    spec:
+      containers:
+      - name: cloud9-v3
+        image: chinodesuuu/c9:v3
+        securityContext:
+          runAsUser: 1000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "512Mi"
+          limits:
+            cpu: "2"
+            memory: "2048Mi"
+        env:
+        - name: USERNAME
+          value: "override"
+        - name: PASSWORD
+          value: "this"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: cloud9-v3
+spec:
+  ports:
+  - name: http
+    port: 8181
+  selector:
+    app: cloud9-v3

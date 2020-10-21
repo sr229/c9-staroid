@@ -1,0 +1,27 @@
+apiVersion: beta/v1
+build:
+  skaffold:
+    file: skaffold.yaml
+ingress:
+  - serviceName: cloud9-v3
+    port: 8181
+deploy:
+  paramGroups:
+  - name: Configuration
+    collapsed: false
+    params:
+    - name: Username
+      description: The username of the Cloud9 IDE user.
+      type: STRING
+      defaultValue: "asatomi"
+      optional: false
+
+    - name: Password
+      description: The password of the Cloud9 IDE user.
+      type: STRING
+      defaultValue: "password"
+      optional: false
+
+      paths:
+      - Deployment:superset:spec.template.spec.containers[0].env[0].value # USERNAME
+      - Deployment:superset:spec.template.spec.containers[0].env[1].value # PASSWORD
