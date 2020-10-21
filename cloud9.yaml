@@ -25,9 +25,9 @@ spec:
             cpu: "2"
             memory: "2048Mi"
         env:
-        - name: USERNAME
+        - name: C9_USERNAME
           value: "override"
-        - name: PASSWORD
+        - name: C9_PASSWORD
           value: "this"
 ---
 kind: Service
