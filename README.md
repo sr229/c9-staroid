@@ -1,6 +1,8 @@
 # c9-staroid
 Cloud9 on Staroid 🌟🌟
 
+[![Run](https://staroid.com/api/run/button.svg)](https://staroid.com/api/run)
+
 ## About
 
 This Staroid project is a Staroid deployment manifest to the existing [Cloud9 On OpenShift](https://github.com/ClarityCafe/cloud9-on-openshift) repository. Currently only v3 is deployed.
