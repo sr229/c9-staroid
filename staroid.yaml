@@ -26,4 +26,4 @@ deploy:
       - Deployment:superset:spec.template.spec.containers[0].env[0].value # USERNAME
       - Deployment:superset:spec.template.spec.containers[0].env[1].value # PASSWORD
 starRank:
-  rate: 1.5
+  rate: 1.0
