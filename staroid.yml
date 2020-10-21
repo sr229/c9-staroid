@@ -3,7 +3,7 @@ build:
   skaffold:
     file: skaffold.yaml
 ingress:
-  - serviceName: cloud9-v3
+  - serviceName: cloud9-v2
     port: 8181
 deploy:
   paramGroups:
@@ -25,3 +25,5 @@ deploy:
       paths:
       - Deployment:superset:spec.template.spec.containers[0].env[0].value # USERNAME
       - Deployment:superset:spec.template.spec.containers[0].env[1].value # PASSWORD
+starRank:
+  rate: 1.5
