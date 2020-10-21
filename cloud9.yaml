@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: c9idev3-deployment
+  name: c9idev2-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cloud9-v3
+      app: cloud9-v2
   template:
     metadata:
       labels:
-        app: cloud9-v3
+        app: cloud9-v2
     spec:
       containers:
-      - name: cloud9-v3
-        image: chinodesuuu/c9:v3
+      - name: cloud9-v2
+        image: chinodesuuu/c9:v2
         securityContext:
           runAsUser: 1000
         resources:
@@ -25,18 +25,18 @@ spec:
             cpu: "2"
             memory: "2048Mi"
         env:
-        - name: USERNAME
+        - name: PLN_USERNAME
           value: "override"
-        - name: PASSWORD
+        - name: PLN_PASSWORD
           value: "this"
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: cloud9-v3
+  name: cloud9-v2
 spec:
   ports:
   - name: http
     port: 8181
   selector:
-    app: cloud9-v3
+    app: cloud9-v2
