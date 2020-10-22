@@ -24,11 +24,18 @@ spec:
           limits:
             cpu: "2"
             memory: "2048Mi"
+        volumeMounts:
+          - name: workspace-pvc
+            mountPath: /workspace
         env:
         - name: PLN_USERNAME
           value: "override"
         - name: PLN_PASSWORD
           value: "this"
+      volumes:
+      - name: workspace-pvc
+        persistentVolumeClaim:
+          claimName: workspace-pvc
 ---
 kind: Service
 apiVersion: v1
@@ -40,3 +47,18 @@ spec:
     port: 8181
   selector:
     app: cloud9-v2
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: workspace-pvc
+  annotations:
+    storage.staroid.com/scope: Instance
+spec:
+  storageClassName: ssd
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
