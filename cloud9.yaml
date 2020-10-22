@@ -33,10 +33,10 @@ spec:
           value: "override"
         - name: C9_PASSWORD
           value: "this"
-    volumes:
-        - name: workspace-pvc
-          persistentVolumeClaim:
-           claimName: workspace-pvc 
+      volumes:
+      - name: workspace-pvc
+        persistentVolumeClaim:
+          claimName: workspace-pvc
 ---
 kind: Service
 apiVersion: v1
