@@ -25,5 +25,14 @@ deploy:
       optional: false
       paths:
       - Deployment:c9idev3-deployment:spec.template.spec.containers[0].env[1].value 
+
+    - name: Disk Size
+      description: The size of the persistent disk to mount on the IDE. Valid values ar 1024Mi or 1Gi.
+      type: STRING
+      defaultValue: "30Gi"
+      optional: false
+      paths:
+      - PersistentVolumeClaim:workspace-pvc:spec.resources.requests.storage
+
 starRank:
   rate: 1.0
