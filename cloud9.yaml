@@ -10,6 +10,8 @@ spec:
   template:
     metadata:
       labels:
+        pod.staroid.com/isolation: dedicated
+        pod.staroid.com/instance-type: standard-2
         app: cloud9-v2
     spec:
       containers:
